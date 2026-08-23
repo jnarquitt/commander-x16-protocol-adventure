@@ -17,13 +17,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Install Commander X16 compiler
+      - name: Build current cc65 toolchain
         run: |
-          sudo apt-get update
-          sudo apt-get install --yes cc65
-          cl65 --version
+          git clone --depth 1 https://github.com/cc65/cc65.git /tmp/cc65
+          make -C /tmp/cc65 -j2
+          echo "/tmp/cc65/bin" >> "$GITHUB_PATH"
+          /tmp/cc65/bin/cl65 --version
 
       - name: Compile game
         run: make
@@ -66,4 +67,3 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
