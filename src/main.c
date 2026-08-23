@@ -69,12 +69,12 @@ static void encounter(void) {
         cputs("A attack   F flee\r\n");
         key = cgetc();
         if (key == 'f' || key == 'F') {
-            result = protocol_roll(&defense);
+            protocol_roll(&defense, &result);
             show_roll(&result);
             if (result.total >= 12u) { cputs("YOU ESCAPE. PRESS A KEY."); cgetc(); return; }
             cputs("ESCAPE FAILED. ");
         } else if (key == 'a' || key == 'A') {
-            result = protocol_roll(&attack);
+            protocol_roll(&attack, &result);
             show_roll(&result);
             if (result.total >= 12u) {
                 uint8_t damage = result.total >= 16u ? 6u : 4u;
@@ -83,7 +83,7 @@ static void encounter(void) {
             } else cputs("MISS. ");
         } else continue;
         if (enemy_hp) {
-            result = protocol_roll(&defense);
+            protocol_roll(&defense, &result);
             if (result.total < 12u) {
                 hp = hp <= 3u ? 0u : (uint8_t)(hp - 3u);
                 cputs("THE DRONE HITS.\r\n");
@@ -122,4 +122,3 @@ int main(void) {
     clrscr(); cputs("THANKS FOR PLAYING.\r\n");
     return 0;
 }
-
