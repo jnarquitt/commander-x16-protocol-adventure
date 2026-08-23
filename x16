@@ -1,0 +1,150 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TOOLS="$ROOT/.tools"
+CC65="$TOOLS/cc65"
+PRG="$ROOT/build/PROTOCOL.PRG"
+PUBLIC_URL="https://jnarquitt.github.io/commander-x16-protocol-adventure/downloads/PROTOCOL.PRG"
+DOWNLOAD="$HOME/Downloads/PROTOCOL.PRG"
+
+say() { printf '%s\n' "$*"; }
+die() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+
+find_emulator() {
+  if [[ -n "${X16_EMULATOR:-}" && -x "${X16_EMULATOR}" ]]; then
+    printf '%s\n' "$X16_EMULATOR"
+    return
+  fi
+  find "$HOME/x16emu" "$HOME/Downloads" "$HOME" -maxdepth 4 -type f -name x16emu -executable -print 2>/dev/null | head -n 1
+}
+
+use_toolchain() {
+  if [[ -x "$CC65/bin/cl65" ]]; then export PATH="$CC65/bin:$PATH"; fi
+  command -v cl65 >/dev/null 2>&1 || die "cc65 is missing. Run: ./x16 setup"
+}
+
+cmd_help() {
+  sed -n '/^Commands:/,$p' <<'EOF'
+Commander X16 project command center
+
+Commands:
+  ./x16 doctor                 Check the development environment
+  ./x16 setup                  Download and build current cc65
+  ./x16 build                  Compile the game
+  ./x16 run                    Build and run the local PRG
+  ./x16 test                   Run project checks
+  ./x16 clean                  Remove compiler output
+  ./x16 status                 Show project and Git status
+  ./x16 publish "message"      Commit and push current changes
+  ./x16 download               Download the public PRG
+  ./x16 play-latest            Download and run the public PRG
+  ./x16 help                   Show this help
+
+Optional override:
+  X16_EMULATOR=/full/path/to/x16emu ./x16 run
+EOF
+}
+
+cmd_doctor() {
+  say "Project: $ROOT"
+  for tool in git make curl; do
+    if command -v "$tool" >/dev/null 2>&1; then say "OK: $tool"; else say "MISSING: $tool"; fi
+  done
+  if [[ -x "$CC65/bin/cl65" ]]; then
+    say "OK: local cc65 at $CC65/bin/cl65"
+  elif command -v cl65 >/dev/null 2>&1; then
+    say "OK: system cc65 at $(command -v cl65)"
+  else
+    say "MISSING: cc65 (run ./x16 setup)"
+  fi
+  emulator="$(find_emulator || true)"
+  [[ -n "$emulator" ]] && say "OK: emulator at $emulator" || say "MISSING: executable x16emu (set X16_EMULATOR)"
+  [[ -f "$PRG" ]] && say "OK: PRG exists ($(wc -c < "$PRG") bytes)" || say "INFO: no built PRG"
+  git -C "$ROOT" status --short --branch 2>/dev/null || say "INFO: this folder is not a Git checkout"
+}
+
+cmd_setup() {
+  command -v git >/dev/null 2>&1 || die "Git is required."
+  command -v make >/dev/null 2>&1 || die "Make is required."
+  mkdir -p "$TOOLS"
+  if [[ -d "$CC65/.git" ]]; then
+    git -C "$CC65" pull --ff-only
+  else
+    git clone --depth 1 https://github.com/cc65/cc65.git "$CC65"
+  fi
+  make -C "$CC65" -j"$(getconf _NPROCESSORS_ONLN 2>/dev/null || printf '2')"
+  say "cc65 is ready. Next: ./x16 build"
+}
+
+cmd_build() {
+  use_toolchain
+  make -C "$ROOT" all
+  [[ -s "$PRG" ]] || die "Build did not create $PRG"
+  say "Built: $PRG ($(wc -c < "$PRG") bytes)"
+}
+
+launch() {
+  local program="$1" emulator
+  emulator="$(find_emulator || true)"
+  [[ -n "$emulator" ]] || die "Could not find x16emu. Set X16_EMULATOR=/full/path/to/x16emu"
+  cd "$(dirname "$emulator")"
+  exec "$emulator" -prg "$program" -run
+}
+
+cmd_run() { cmd_build; launch "$PRG"; }
+
+cmd_test() {
+  cmd_build
+  [[ "$(od -An -tx1 -N2 "$PRG" | tr -d ' \n')" == "0108" ]] || die "Unexpected PRG load-address header."
+  say "PASS: compile and PRG header checks"
+}
+
+cmd_clean() { make -C "$ROOT" clean; }
+
+cmd_status() {
+  sed -n '1,100p' "$ROOT/PROJECT_STATUS.md"
+  say ""
+  git -C "$ROOT" status --short --branch 2>/dev/null || true
+  [[ -f "$PRG" ]] && say "Local PRG: $(wc -c < "$PRG") bytes" || true
+  if command -v gh >/dev/null 2>&1; then
+    gh run list --repo jnarquitt/commander-x16-protocol-adventure --limit 5 || true
+  fi
+}
+
+cmd_publish() {
+  local message="${1:-}"
+  [[ -n "$message" ]] || die 'Supply a commit message: ./x16 publish "Describe the change"'
+  git -C "$ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1 || die "Not a Git checkout."
+  cmd_test
+  git -C "$ROOT" add --all
+  git -C "$ROOT" diff --cached --quiet && die "There are no changes to publish."
+  git -C "$ROOT" commit -m "$message"
+  git -C "$ROOT" push
+  say "Published. GitHub Actions will build and deploy the PRG."
+}
+
+cmd_download() {
+  mkdir -p "$(dirname "$DOWNLOAD")"
+  curl --fail --location --show-error "$PUBLIC_URL?refresh=$(date +%s)" -o "$DOWNLOAD"
+  [[ -s "$DOWNLOAD" ]] || die "Downloaded PRG is empty."
+  say "Downloaded: $DOWNLOAD ($(wc -c < "$DOWNLOAD") bytes)"
+}
+
+cmd_play_latest() { cmd_download; launch "$DOWNLOAD"; }
+
+case "${1:-help}" in
+  doctor) cmd_doctor ;;
+  setup) cmd_setup ;;
+  build) cmd_build ;;
+  run) cmd_run ;;
+  test) cmd_test ;;
+  clean) cmd_clean ;;
+  status) cmd_status ;;
+  publish) shift; cmd_publish "${1:-}" ;;
+  download) cmd_download ;;
+  play-latest) cmd_play_latest ;;
+  help|-h|--help) cmd_help ;;
+  *) die "Unknown command: $1. Run ./x16 help" ;;
+esac
+

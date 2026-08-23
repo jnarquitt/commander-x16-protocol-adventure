@@ -25,11 +25,17 @@ The vertical slice now includes:
 
 ## Start here
 
-1. Read `docs/01_GAME_DESIGN_BIBLE.md` for the game vision.
-2. Read `docs/02_PROTOCOL_DICE_VIDEO_GAME_RULES.md` for the digital rules.
-3. Follow `docs/03_X16_PROGRAMMING_GUIDE.md` to install the emulator and cc65.
-4. Run `make` to build `build/PROTOCOL.PRG`.
-5. Run `make run EMULATOR=/path/to/x16emu` or launch the PRG through your normal X16 emulator workflow.
+From the repository folder, run:
+
+```bash
+./x16 doctor
+./x16 setup
+./x16 run
+```
+
+The `x16` Bash command center detects the local toolchain and emulator, builds the game, runs checks, downloads public builds, and publishes through Git. See `docs/08_DEVELOPMENT_CONTROLS.md` for the full control system.
+
+Then read `docs/01_GAME_DESIGN_BIBLE.md` for the game vision and `docs/02_PROTOCOL_DICE_VIDEO_GAME_RULES.md` for the digital rules.
 
 ## Authoritative order
 
@@ -40,8 +46,10 @@ When documents conflict, use this order:
 3. `docs/01_GAME_DESIGN_BIBLE.md`
 4. `docs/04_TECHNICAL_ARCHITECTURE.md`
 5. `docs/05_CONTENT_AND_DATA_STANDARD.md`
-6. Current source code and tests
-7. Planning notes
+6. `PROJECT_INSTRUCTIONS.md`
+7. `DECISIONS.md`
+8. Current source code and tests
+9. `PROJECT_STATUS.md` and `BACKLOG.md`
 
 No rules in this new adaptation are frozen yet. Changes must be recorded in `CHANGELOG.md` until the first playtest lock.
 
