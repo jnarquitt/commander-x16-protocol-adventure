@@ -103,6 +103,10 @@ static uint8_t walkable(uint8_t x, uint8_t y) {
 int main(void) {
     char key;
     uint8_t nx, ny;
+    bordercolor(COLOR_BLUE);
+    bgcolor(COLOR_BLUE);
+    textcolor(COLOR_WHITE);
+    clrscr();
     protocol_seed(0x1985u);
     while (hp) {
         draw_world();
