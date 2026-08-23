@@ -17,8 +17,7 @@ typedef struct {
 } ProtocolResult;
 
 void protocol_seed(uint16_t seed);
-ProtocolResult protocol_roll(const ProtocolPool* pool);
+void protocol_roll(const ProtocolPool* pool, ProtocolResult* result);
 uint8_t protocol_test(const ProtocolPool* pool, uint8_t difficulty);
 
 #endif
-
