@@ -24,19 +24,18 @@ static uint8_t roll_die(uint8_t sides) {
     return (uint8_t)((value % sides) + 1u);
 }
 
-ProtocolResult protocol_roll(const ProtocolPool* pool) {
-    ProtocolResult result;
+void protocol_roll(const ProtocolPool* pool, ProtocolResult* result) {
     uint8_t i;
-    result.count = pool->count > PROTOCOL_MAX_DICE ? PROTOCOL_MAX_DICE : pool->count;
-    result.total = 0u;
-    for (i = 0u; i < result.count; ++i) {
-        result.faces[i] = roll_die(pool->sides[i]);
-        if (result.faces[i] >= 4u) result.total = (uint8_t)(result.total + result.faces[i]);
+    result->count = pool->count > PROTOCOL_MAX_DICE ? PROTOCOL_MAX_DICE : pool->count;
+    result->total = 0u;
+    for (i = 0u; i < result->count; ++i) {
+        result->faces[i] = roll_die(pool->sides[i]);
+        if (result->faces[i] >= 4u) result->total = (uint8_t)(result->total + result->faces[i]);
     }
-    return result;
 }
 
 uint8_t protocol_test(const ProtocolPool* pool, uint8_t difficulty) {
-    return protocol_roll(pool).total >= difficulty;
+    ProtocolResult result;
+    protocol_roll(pool, &result);
+    return result.total >= difficulty;
 }
-
