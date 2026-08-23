@@ -15,6 +15,15 @@ static uint8_t random_byte(void) {
     return (uint8_t)(x & 0xFFu);
 }
 
+uint8_t protocol_random(uint8_t limit) {
+    uint8_t ceiling;
+    uint8_t value;
+    if (limit < 2u) return 0u;
+    ceiling = (uint8_t)(255u - (255u % limit));
+    do { value = random_byte(); } while (value >= ceiling);
+    return (uint8_t)(value % limit);
+}
+
 static uint8_t roll_die(uint8_t sides) {
     uint8_t limit;
     uint8_t value;
