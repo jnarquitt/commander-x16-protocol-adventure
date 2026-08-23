@@ -1,6 +1,14 @@
 # Commander X16 Protocol Adventure
 
-An 1980s-style exploration and combat game for the Commander X16, powered by the Protocol Dice skill system.
+A 1980s-style exploration and combat game for the Commander X16, powered by the Protocol Dice skill system.
+
+## Play the latest build
+
+The project page automatically publishes the newest compiled Commander X16 program:
+
+**https://jnarquitt.github.io/commander-x16-protocol-adventure/**
+
+Download `PROTOCOL.PRG` there and run it with a matching official Commander X16 emulator and ROM.
 
 ## Project status
 
@@ -53,4 +61,3 @@ release/    Versioned distributable disk images and ZIPs
 ## Scope of v0.001
 
 This package is the project foundation, not the finished game. Its next required milestone is **v0.010 Vertical Slice**: one VERA tilemap area, animated hardware sprite, one encounter group, one combat backdrop, one skill challenge, one item, and save/load proof.
-
