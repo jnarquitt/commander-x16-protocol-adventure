@@ -12,16 +12,16 @@ Download `PROTOCOL.PRG` there and run it with a matching official Commander X16 
 
 ## Project status
 
-Version **0.001 — FOUNDATION / PRE-ALPHA** establishes the creative target, rules adaptation, technical architecture, source layout, development workflow, and a minimal playable prototype.
+Version **0.010 — VERA VERTICAL SLICE / PRE-ALPHA** establishes the first graphical game loop on Commander X16 hardware.
 
-The prototype uses text mode so the complete play loop can be proven before art production:
+The vertical slice now includes:
 
-- move the player with **WASD**;
-- each valid step may trigger a random encounter;
-- an encounter opens a separate combat screen;
-- attacks use three Ability dice plus one Skill die;
-- results of 1–3 are blank and results of 4+ are totaled;
-- survive, flee, or quit with **Q**.
+- a colored VERA tilemap and animated hardware player sprite;
+- **WASD** and standard Commander X16 joystick controls;
+- collision, investigation, a locked gate, and an artifact objective;
+- regional threat accumulation and random combat encounters;
+- Attack, Guard, Medkit, and Flee commands;
+- visible Protocol Dice pools where results of 1–3 are blank and results of 4+ are totaled.
 
 ## Start here
 
@@ -58,6 +58,6 @@ build/      Generated files; never hand-edit
 release/    Versioned distributable disk images and ZIPs
 ```
 
-## Scope of v0.001
+## Scope of v0.010
 
-This package is the project foundation, not the finished game. Its next required milestone is **v0.010 Vertical Slice**: one VERA tilemap area, animated hardware sprite, one encounter group, one combat backdrop, one skill challenge, one item, and save/load proof.
+This remains a pre-alpha vertical slice, not the finished game. The next required milestone is **v0.020 Content Systems**: externalized maps and dialogue, multiple encounter types, save/load, audio, inventory data, and host-side content converters.
