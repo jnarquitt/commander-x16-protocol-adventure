@@ -49,15 +49,17 @@ The computer must preserve the feeling of rolling a pool:
 
 ## Combat adaptation
 
-The first vertical slice uses a compact turn menu rather than all tabletop Action Point options.
+The game preserves 3 AP turns. A normal Attack costs 1 AP and may be repeated by paying its cost. Movement costs 1 AP for up to the scene's equivalent of 30 feet. One normal Reaction is available between turns under the current banked/borrowed AP rule.
 
 - **Attack:** roll the weapon Skill pool against the target Defense.
 - **Skill:** roll a context-specific Skill, often to create an advantage rather than deal damage.
 - **Item:** use a carried item; the item defines whether a roll occurs.
 - **Guard:** gain a temporary defense die until the next turn.
-- **Flee:** roll the displayed escape pool against regional Difficulty.
+- **End Turn:** surrender remaining actions and proceed to the opposition.
 
-Damage is defined by the weapon or effect, then improved by margin. Do not use the roll total itself as raw damage; doing so makes high dice scale twice.
+Damage equals the winning margin of the opposed attack and defense pools. Armor contributes its listed gear die to an appropriate defense pool and does not also reduce damage unless a specific item says otherwise.
+
+One primary relevant gear die may contribute to a roll unless an explicit rule permits stacking. VAMs consume BAR capacity rather than energy; loading into free capacity is free, while field replacement or unloading costs 1 AP for the reconfiguration.
 
 ## Randomness contract
 
@@ -82,4 +84,3 @@ Damage is defined by the weapon or effect, then improved by margin. Do not use t
 - Does a failed roll create a new situation quickly?
 - Do encounter frequency and healing produce tension without grind?
 - Does combat end before its visual presentation becomes repetitive?
-

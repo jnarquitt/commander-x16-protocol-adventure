@@ -1,4 +1,4 @@
-name: Build Game and Publish Project Page
+name: Build Protocol Seven RPG and Publish Project Page
 
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
       - name: Upload playable PRG artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Commander-X16-Protocol-Adventure
+          name: Protocol-Seven-The-Ash-Ledger-X16
           path: build/PROTOCOL.PRG
           if-no-files-found: error
 

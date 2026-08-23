@@ -97,6 +97,7 @@ cmd_run() { cmd_build; launch "$PRG"; }
 cmd_test() {
   cmd_build
   [[ "$(od -An -tx1 -N2 "$PRG" | tr -d ' \n')" == "0108" ]] || die "Unexpected PRG load-address header."
+  "$ROOT/tools/validate_content.sh"
   say "PASS: compile and PRG header checks"
 }
 
@@ -147,4 +148,3 @@ case "${1:-help}" in
   help|-h|--help) cmd_help ;;
   *) die "Unknown command: $1. Run ./x16 help" ;;
 esac
-

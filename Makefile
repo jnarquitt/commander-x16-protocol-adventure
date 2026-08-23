@@ -1,6 +1,6 @@
 TARGET := protocol
 BUILD := build
-SRC := src/main.c src/protocol_dice.c
+SRC := src/main.c src/protocol_dice.c src/game_content.c
 CC := cl65
 CFLAGS := -t cx16 -Oirs -I include
 
@@ -11,7 +11,7 @@ all: $(BUILD)/PROTOCOL.PRG
 $(BUILD):
 	mkdir -p $(BUILD)
 
-$(BUILD)/PROTOCOL.PRG: $(SRC) include/protocol_dice.h | $(BUILD)
+$(BUILD)/PROTOCOL.PRG: $(SRC) include/protocol_dice.h include/game_content.h | $(BUILD)
 	$(CC) $(CFLAGS) -o $@ $(SRC)
 
 run: all
@@ -20,4 +20,3 @@ run: all
 
 clean:
 	rm -f $(BUILD)/*.PRG $(BUILD)/*.o
-

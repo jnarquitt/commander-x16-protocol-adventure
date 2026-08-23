@@ -1,6 +1,6 @@
-# Commander X16 Protocol Adventure
+# Protocol Seven: The Ash Ledger — Commander X16 RPG
 
-A 1980s-style exploration and combat game for the Commander X16, powered by the Protocol Dice skill system.
+A story-driven, SNES-style roleplaying game for Commander X16, set in the Protocol Seven universe and adapting *The Continuance Files* adventure path.
 
 ## Play the latest build
 
@@ -12,16 +12,17 @@ Download `PROTOCOL.PRG` there and run it with a matching official Commander X16 
 
 ## Project status
 
-Version **0.010 — VERA VERTICAL SLICE / PRE-ALPHA** establishes the first graphical game loop on Commander X16 hardware.
+Version **0.100 — THE FALLING HOUR / PRE-ALPHA** is the first narrative RPG vertical slice based on *The Ash Ledger*.
 
-The vertical slice now includes:
+The vertical slice includes:
 
-- a colored VERA tilemap and animated hardware player sprite;
-- **WASD** and standard Commander X16 joystick controls;
-- collision, investigation, a locked gate, and an artifact objective;
-- regional threat accumulation and random combat encounters;
-- Attack, Guard, Medkit, and Flee commands;
-- visible Protocol Dice pools where results of 1–3 are blank and results of 4+ are totaled.
+- Mara, Eli, and Nia as the opening Vector party;
+- a 1906 San Francisco exploration chapter;
+- rescue and investigation routes through the Insurance Annex and Telegraph Exchange;
+- Miriam Quill, Elias Rourke, Silas Venn, and the Blue Ledger;
+- Carrier, Exposure, Fire Clock, and remembered-history choices;
+- a 3 AP Protocol Dice conflict with physical and social victory paths;
+- extraction, Historical Verification, and the seven-stroke mystery.
 
 ## Start here
 
@@ -41,12 +42,12 @@ Then read `docs/01_GAME_DESIGN_BIBLE.md` for the game vision and `docs/02_PROTOC
 
 When documents conflict, use this order:
 
-1. `docs/00_PROJECT_CHARTER.md`
-2. `docs/02_PROTOCOL_DICE_VIDEO_GAME_RULES.md`
-3. `docs/01_GAME_DESIGN_BIBLE.md`
-4. `docs/04_TECHNICAL_ARCHITECTURE.md`
-5. `docs/05_CONTENT_AND_DATA_STANDARD.md`
-6. `PROJECT_INSTRUCTIONS.md`
+1. Current Protocol Seven canonical rules and active locks
+2. Current *Continuance Files* and *Ash Ledger* campaign sources
+3. `docs/09_PROTOCOL_SEVEN_RPG_REBOOT.md`
+4. `docs/10_ASH_LEDGER_CHAPTER_PLAN.md`
+5. `PROJECT_INSTRUCTIONS.md`
+6. Technical architecture and content standards
 7. `DECISIONS.md`
 8. Current source code and tests
 9. `PROJECT_STATUS.md` and `BACKLOG.md`
@@ -66,6 +67,6 @@ build/      Generated files; never hand-edit
 release/    Versioned distributable disk images and ZIPs
 ```
 
-## Scope of v0.010
+## Scope of v0.100
 
-This remains a pre-alpha vertical slice, not the finished game. The next required milestone is **v0.020 Content Systems**: externalized maps and dialogue, multiple encounter types, save/load, audio, inventory data, and host-side content converters.
+This is a compressed proof of the complete opening chapter, not the finished campaign. The next milestone is **v0.110 Presentation Foundation**: custom tiles, animated NPCs, party field sprites, portraits, transitions, controller-native menus, sound, music, and chapter checkpoint saves.

@@ -1,6 +1,6 @@
 # Commander X16 Project Instructions
 
-These instructions govern this repository and future Commander X16 projects derived from it.
+These instructions govern *Protocol Seven: The Ash Ledger — Commander X16 RPG* and future Commander X16 projects derived from it.
 
 ## Working relationship
 
@@ -19,7 +19,7 @@ These instructions govern this repository and future Commander X16 projects deri
 - Target the current Commander X16 emulator and current `cc65` CX16 target.
 - Keep the last known-good PRG runnable while developing the next milestone.
 - Use VERA hardware intentionally; document VRAM addresses and memory ownership.
-- Preserve Protocol Dice canon: roll the skill pool, results 1–3 are blank, and total results 4+.
+- Preserve the current Protocol Seven frozen rules, including complete Protocol Dice pools, 1–3 blank, 4+ scoring, 3 AP, attack and movement costs, HP by CON, Gear, VAM/BAR, Carrier, and Exposure rules.
 - Separate rules logic, platform code, content data, and generated assets.
 - Do not hand-edit anything under `build/`.
 - Record player-visible changes in `CHANGELOG.md`.
@@ -43,4 +43,3 @@ Before calling a version complete:
 ## Release communication
 
 Every handoff must include what changed, what was verified, the current version, one public project link when published, and one copyable Bash block if the user must do anything locally.
-

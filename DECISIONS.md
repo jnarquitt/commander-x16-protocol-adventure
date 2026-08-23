@@ -22,3 +22,10 @@ All skills and combat resolution use Protocol Dice. Results 1–3 are blank; res
 
 Use Bash as the default handoff interface. When automatic GitHub operations are unavailable, provide a complete copyable Bash command that detects paths where practical and stops safely on errors.
 
+## 2026-08-22 — Protocol Seven RPG reboot
+
+The product is now *Protocol Seven: The Ash Ledger — Commander X16 RPG*. The Amber Wilds builds remain technical prototypes but are not story canon. The target experience is a polished, story-driven, SNES-style RPG adapted honestly to Commander X16 hardware.
+
+## 2026-08-22 — Campaign authority
+
+Use the current Protocol Seven canonical rules and active locks, followed by *The Continuance Files* Campaign Director Guide and the current mission source. v0.100 adapts *The Ash Ledger* r003 and preserves its Carrier-versus-Exposure structure.
