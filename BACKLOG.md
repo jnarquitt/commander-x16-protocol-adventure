@@ -9,16 +9,26 @@
 - added opposed physical and social conflict with Silas Venn
 - added extraction and Historical Verification
 
-## Now — v0.110 Presentation Foundation
+## Completed — v0.110 Presentation Foundation
 
-- custom 16×16 and 32×32 tile asset pipeline
-- animated NPC hardware sprites
+- custom terrain glyph foundation
+- independently rendered NPC hardware sprites
+- speaker portrait sprites
+- scene fades and audio feedback cues
+- controller-native title and battle menus
+- versioned chapter checkpoint file
+- build, VRAM, and save-schema report
+
+## Now — v0.120 Art Direction and World Detail
+
+- external PNG-to-X16 asset converter
+- final party and NPC sprite silhouettes
+- larger illustrated portraits with expressions
 - party-following field sprites
-- illustrated character portraits
-- scene fades, camera emphasis, and dialogue animation
-- controller-native battle menus
-- first sound-effect and music driver
-- chapter checkpoint save file
+- animated fire, smoke, water, and environmental effects
+- dialogue typewriter and camera emphasis
+- first looping musical themes
+- save slots and manual save-point interface
 
 ## Historical prototype — v0.020 Content Systems
 

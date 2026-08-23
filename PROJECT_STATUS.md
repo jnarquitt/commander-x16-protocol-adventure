@@ -2,8 +2,8 @@
 
 ## Current build
 
-- Version: **0.100 — The Falling Hour / Pre-Alpha**
-- State: playable SNES-style narrative RPG vertical slice
+- Version: **0.110 — Presentation Foundation / Pre-Alpha**
+- State: playable narrative RPG slice with native presentation, audio, controller menus, and checkpoints
 - Program: `build/PROTOCOL.PRG`
 - Public page: https://jnarquitt.github.io/commander-x16-protocol-adventure/
 
@@ -19,17 +19,24 @@
 - physical and social victory paths against Silas Venn
 - Historical Verification and seven-stroke campaign hook
 - deterministic seed, investigation-key, confrontation-jump, and state-overlay controls
+- custom VERA terrain glyphs and independently drawn actor sprites
+- speaker portraits and scene fades
+- native VERA PSG feedback cues
+- joystick-native title and combat menus
+- versioned, checksum-protected device-8 checkpoint saves
+- automated PRG, VRAM, and save-schema build report
 
 ## Next milestone
 
-**v0.110 — Presentation Foundation**
+**v0.120 — Art Direction and World Detail**
 
-- multi-sprite party and NPC presentation
-- custom tile and portrait asset pipeline
-- animated dialogue portraits and scene transitions
-- first sound effects and musical identity
-- expanded controller-driven menus
-- chapter checkpoint save format
+- external PNG-to-X16 sprite and tile conversion pipeline
+- final character silhouette and portrait direction
+- richer street, building, fire, smoke, and environmental animation
+- party-following field sprites
+- dialogue typewriter and portrait-expression system
+- first looping musical themes
+- save-slot selection and manual save points
 
 ## Current risks
 

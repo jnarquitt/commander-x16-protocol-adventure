@@ -16,6 +16,7 @@ The repository-root `x16` script is the primary command center.
 | `./x16 test` | Run automated checks and compile verification |
 | `./x16 clean` | Remove generated compiler output |
 | `./x16 status` | Show project, Git, build, and workflow status |
+| `./x16 report` | Show PRG size, hash, VRAM ownership, and save schema |
 | `./x16 publish "message"` | Commit and push current changes |
 | `./x16 download` | Download the newest public PRG |
 | `./x16 play-latest` | Download and run the newest public PRG |
@@ -71,4 +72,3 @@ Show version and short Git commit on the title or diagnostics screen so a screen
 ### Automated publishing guard
 
 GitHub Actions must build from source, upload the PRG, deploy the project page, and fail rather than publish when compilation or validation fails.
-

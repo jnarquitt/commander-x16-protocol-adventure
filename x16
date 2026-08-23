@@ -36,6 +36,7 @@ Commands:
   ./x16 test                   Run project checks
   ./x16 clean                  Remove compiler output
   ./x16 status                 Show project and Git status
+  ./x16 report                 Show PRG, VRAM, and save-schema report
   ./x16 publish "message"      Commit and push current changes
   ./x16 download               Download the public PRG
   ./x16 play-latest            Download and run the public PRG
@@ -113,6 +114,8 @@ cmd_status() {
   fi
 }
 
+cmd_report() { cmd_build; "$ROOT/tools/build_report.sh"; }
+
 cmd_publish() {
   local message="${1:-}"
   [[ -n "$message" ]] || die 'Supply a commit message: ./x16 publish "Describe the change"'
@@ -142,6 +145,7 @@ case "${1:-help}" in
   test) cmd_test ;;
   clean) cmd_clean ;;
   status) cmd_status ;;
+  report) cmd_report ;;
   publish) shift; cmd_publish "${1:-}" ;;
   download) cmd_download ;;
   play-latest) cmd_play_latest ;;

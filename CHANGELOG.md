@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.110 — Presentation Foundation / Pre-Alpha
+
+- Added custom 8×8 VERA terrain glyphs for pavement, brick, rubble, fire, and water.
+- Added independent hardware sprites for the trapped child, Quill, Rourke, and Venn.
+- Added color-coded speaker portrait sprites to dialogue scenes.
+- Added fade transitions and native VERA PSG confirm, success, failure, alarm, and movement cues.
+- Added joystick-native New/Continue and battle command menus.
+- Added versioned, checksum-protected `P7ASH.SAV` chapter checkpoints on device 8.
+- Added automatic checkpoints after Carrier identification and the Venn confrontation.
+- Added `./x16 report` for PRG, VRAM ownership, and save-schema reporting.
+
 ## v0.100 — The Falling Hour / Pre-Alpha
 
 - Rebooted the project as *Protocol Seven: The Ash Ledger*, a story-driven SNES-style RPG.

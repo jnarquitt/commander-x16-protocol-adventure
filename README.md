@@ -12,7 +12,7 @@ Download `PROTOCOL.PRG` there and run it with a matching official Commander X16 
 
 ## Project status
 
-Version **0.100 — THE FALLING HOUR / PRE-ALPHA** is the first narrative RPG vertical slice based on *The Ash Ledger*.
+Version **0.110 — PRESENTATION FOUNDATION / PRE-ALPHA** adds the first native visual, audio, controller, and checkpoint systems to the playable *Ash Ledger* chapter.
 
 The vertical slice includes:
 
@@ -23,6 +23,10 @@ The vertical slice includes:
 - Carrier, Exposure, Fire Clock, and remembered-history choices;
 - a 3 AP Protocol Dice conflict with physical and social victory paths;
 - extraction, Historical Verification, and the seven-stroke mystery.
+- custom terrain glyphs and independent actor sprites;
+- speaker portraits, scene fades, and native VERA PSG cues;
+- joystick-native title and combat menus;
+- checksum-protected chapter checkpoints on device 8.
 
 ## Start here
 
@@ -67,6 +71,6 @@ build/      Generated files; never hand-edit
 release/    Versioned distributable disk images and ZIPs
 ```
 
-## Scope of v0.100
+## Scope of v0.110
 
-This is a compressed proof of the complete opening chapter, not the finished campaign. The next milestone is **v0.110 Presentation Foundation**: custom tiles, animated NPCs, party field sprites, portraits, transitions, controller-native menus, sound, music, and chapter checkpoint saves.
+This is a compressed proof of the complete opening chapter, not the finished campaign. The next milestone is **v0.120 Art Direction and World Detail**: converted source artwork, larger expressive portraits, party-following sprites, animated environments, dialogue animation, looping music, and expanded save controls.
