@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.120 — Art Direction and World Detail / Pre-Alpha
+
+- Added an original portrait direction sheet for Mara, Eli, Nia, Miriam Quill, and Silas Venn.
+- Added deterministic 32×32, 16-color, 4-bpp Commander X16 portrait conversion.
+- Added enlarged generated portrait previews for visual QA.
+- Added converted runtime portraits in dedicated VRAM.
+- Added Eli and Nia as party-following hardware sprites on the exploration map.
+- Added animated fire and water terrain glyphs.
+- Added skippable typewriter dialogue.
+- Added a nonblocking two-voice VERA PSG field theme.
+- Added manual checkpoints through keyboard C or joystick button B.
+- Added `./x16 assets` to rebuild portraits from their source sheet.
+
 ## v0.110 — Presentation Foundation / Pre-Alpha
 
 - Added custom 8×8 VERA terrain glyphs for pavement, brick, rubble, fire, and water.

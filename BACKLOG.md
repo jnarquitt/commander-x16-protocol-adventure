@@ -19,16 +19,27 @@
 - versioned chapter checkpoint file
 - build, VRAM, and save-schema report
 
-## Now — v0.120 Art Direction and World Detail
+## Completed — v0.120 Art Direction and World Detail
 
-- external PNG-to-X16 asset converter
-- final party and NPC sprite silhouettes
-- larger illustrated portraits with expressions
+- external portrait-to-X16 asset converter
+- original five-character portrait direction
+- converted 32×32 character portraits
 - party-following field sprites
-- animated fire, smoke, water, and environmental effects
-- dialogue typewriter and camera emphasis
-- first looping musical themes
-- save slots and manual save-point interface
+- animated fire and water
+- skippable typewriter dialogue
+- first looping two-voice field theme
+- manual checkpoint control
+
+## Now — v0.130 Cinematic Scene and Map Expansion
+
+- dedicated 16×16 VERA map tiles and asset conversion
+- portrait expressions and camera emphasis
+- Insurance Annex interior map
+- Telegraph Exchange interior map
+- smoke, aftershock, masonry, and crowd effects
+- authored event trigger and map-transition data
+- battle and Historical Verification themes
+- three checkpoint slots
 
 ## Historical prototype — v0.020 Content Systems
 

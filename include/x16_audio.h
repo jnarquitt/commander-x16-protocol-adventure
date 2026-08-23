@@ -10,6 +10,8 @@ void audio_success(void);
 void audio_failure(void);
 void audio_alarm(void);
 void audio_step(uint8_t frame);
+void audio_music_start(void);
+void audio_music_tick(void);
+void audio_music_stop(void);
 
 #endif
-

@@ -12,6 +12,7 @@ The repository-root `x16` script is the primary command center.
 | `./x16 doctor` | Check Git, Make, compiler, emulator, and repository state |
 | `./x16 setup` | Build a current local cc65 toolchain |
 | `./x16 build` | Compile `build/PROTOCOL.PRG` |
+| `./x16 assets` | Convert the portrait direction sheet into X16-safe assets |
 | `./x16 run` | Build and launch in the detected emulator |
 | `./x16 test` | Run automated checks and compile verification |
 | `./x16 clean` | Remove generated compiler output |

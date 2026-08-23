@@ -32,6 +32,7 @@ Commands:
   ./x16 doctor                 Check the development environment
   ./x16 setup                  Download and build current cc65
   ./x16 build                  Compile the game
+  ./x16 assets                 Rebuild X16 portraits from source art
   ./x16 run                    Build and run the local PRG
   ./x16 test                   Run project checks
   ./x16 clean                  Remove compiler output
@@ -83,6 +84,11 @@ cmd_build() {
   make -C "$ROOT" all
   [[ -s "$PRG" ]] || die "Build did not create $PRG"
   say "Built: $PRG ($(wc -c < "$PRG") bytes)"
+}
+
+cmd_assets() {
+  python3 "$ROOT/tools/build_portraits.py"
+  say "Portrait assets rebuilt. Next: ./x16 test"
 }
 
 launch() {
@@ -141,6 +147,7 @@ case "${1:-help}" in
   doctor) cmd_doctor ;;
   setup) cmd_setup ;;
   build) cmd_build ;;
+  assets) cmd_assets ;;
   run) cmd_run ;;
   test) cmd_test ;;
   clean) cmd_clean ;;

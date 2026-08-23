@@ -5,9 +5,9 @@
 - The field uses a custom 8×8 glyph set for pavement, brick, rubble, fire, and water.
 - Sprite slot 0 is the animated player.
 - Sprite slots 1–4 are field actors: trapped child, Miriam Quill, Elias Rourke, and Silas Venn.
-- Sprite slot 5 becomes the active speaker portrait during dialogue.
-- Actor art is generated deterministically into VRAM at startup so the PRG remains self-contained.
-- Later art passes may replace pixel generators with converted source artwork without changing scene logic.
+- Sprite slot 5 becomes the active 32×32 speaker portrait during dialogue.
+- Sprite slots 6 and 7 display Eli and Nia following Mara on the field.
+- Field actors are generated deterministically; five principal portraits are converted from the approved direction sheet and embedded so the PRG remains self-contained.
 
 ## Dialogue presentation
 
@@ -25,9 +25,9 @@
 
 ## Audio
 
-The sound module writes a reserved VERA PSG voice at `$1F9C0`. It provides confirm, success, failure, alarm, and movement cues. The current cues are deliberately short so they do not require an interrupt-driven sequencer.
+The sound module reserves VERA PSG voice 0 for confirm, success, failure, alarm, and movement cues. Voices 1 and 2 provide a nonblocking looping field theme.
 
-A later music driver must reserve separate PSG voices, support global attenuation, and never write the gameplay cue voice without coordinating ownership.
+A later music driver must expand this ownership model, support global attenuation, and never write another subsystem's voice without coordination.
 
 ## Checkpoint saves
 
@@ -44,4 +44,3 @@ The title menu can continue a valid checkpoint. Missing, truncated, wrong-versio
 ## VRAM ownership
 
 Run `./x16 report` for the active allocation summary. No new visual or audio system may claim an address without updating that report and this document.
-

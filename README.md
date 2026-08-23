@@ -12,7 +12,7 @@ Download `PROTOCOL.PRG` there and run it with a matching official Commander X16 
 
 ## Project status
 
-Version **0.110 — PRESENTATION FOUNDATION / PRE-ALPHA** adds the first native visual, audio, controller, and checkpoint systems to the playable *Ash Ledger* chapter.
+Version **0.120 — ART DIRECTION AND WORLD DETAIL / PRE-ALPHA** adds the first converted character art, environmental motion, party presentation, field music, and manual checkpoint controls.
 
 The vertical slice includes:
 
@@ -27,6 +27,11 @@ The vertical slice includes:
 - speaker portraits, scene fades, and native VERA PSG cues;
 - joystick-native title and combat menus;
 - checksum-protected chapter checkpoints on device 8.
+- an original five-character portrait direction sheet and deterministic X16 converter;
+- 32×32 portraits for Mara, Eli, Nia, Quill, and Venn;
+- Eli and Nia following Mara on the field;
+- animated fire and water, skippable typewriter dialogue, and a looping two-voice theme;
+- manual checkpoint recording with keyboard C or joystick button B.
 
 ## Start here
 
@@ -71,6 +76,6 @@ build/      Generated files; never hand-edit
 release/    Versioned distributable disk images and ZIPs
 ```
 
-## Scope of v0.110
+## Scope of v0.120
 
-This is a compressed proof of the complete opening chapter, not the finished campaign. The next milestone is **v0.120 Art Direction and World Detail**: converted source artwork, larger expressive portraits, party-following sprites, animated environments, dialogue animation, looping music, and expanded save controls.
+This is a compressed proof of the complete opening chapter, not the finished campaign. The next milestone is **v0.130 Cinematic Scene and Map Expansion**: dedicated 16×16 VERA maps, mission interiors, portrait expressions, cinematic event effects, additional musical themes, and three checkpoint slots.

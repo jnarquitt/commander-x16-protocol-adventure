@@ -18,3 +18,7 @@ done
 
 printf 'PASS: Ash Ledger map dimensions and critical markers\n'
 
+portrait_bytes="$(grep -Eo '0x[0-9A-F]{2}u' "$ROOT/src/generated_portraits.c" | wc -l)"
+[[ "$portrait_bytes" == "2560" ]] || { printf 'FAIL: generated portraits contain %s bytes, expected 2560\n' "$portrait_bytes" >&2; exit 1; }
+[[ -s "$ROOT/assets/generated/portrait-preview-sheet-v0.120.png" ]] || { printf 'FAIL: portrait QA sheet is missing\n' >&2; exit 1; }
+printf 'PASS: five generated 32x32 4-bpp portraits\n'

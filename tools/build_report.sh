@@ -13,10 +13,10 @@ printf 'Load header: %s\n' "$(od -An -tx1 -N2 "$PRG" | tr -d ' \n')"
 printf '\nVRAM OWNERSHIP\n'
 printf '$13000-$130FF  player animation frames\n'
 printf '$13100-$134FF  actor and portrait sprites\n'
+printf '$14000-$149FF  five converted 32x32 portraits\n'
 printf '$1B000-$1EBFF  KERNAL text screen region\n'
 printf '$1F000-$1F7FF  KERNAL/custom charset\n'
 printf '$1F9C0-$1F9FF  VERA PSG voices\n'
 printf '$1FC00-$1FFFF  sprite attributes\n'
 printf '\nSAVE SCHEMA\n'
 printf 'P7ASH.SAV version 1, device 8, checksum protected\n'
-
